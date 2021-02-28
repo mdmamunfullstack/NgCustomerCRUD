@@ -1,3 +1,24 @@
-<p>
-  customer-list works!
-</p>
+<table class="table table-sm table-hover">
+  <tr>
+    <td>Name</td>
+    <td>Address</td>
+    <td>Mobile</td>
+    <td>Email</td>
+    <td>Action</td>
+  </tr>
+  <tr *ngFor="let customer of custservice.CustomerList | async">
+    <td>{{customer.Name}}</td>
+    <td>{{customer.Address}}</td>
+   
+    <td>{{customer.Mobile}}</td>
+    <td>{{customer.Email}}</td>
+    <td>
+      <a class="btn" (click)="showForEdit(customer)">
+        <i class="fa fa-pencil-square-o"></i>
+      </a>
+      <a class="btn text-danger" (click)="onDelete(customer.CustId)">
+        <i class="fa fa-trash-o"></i>
+      </a>
+    </td>
+  </tr>
+</table>
